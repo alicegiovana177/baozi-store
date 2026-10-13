@@ -239,15 +239,15 @@ def montar():
         safe_repo = escape(REPO)
         story.append(para(f'<link href="{safe_repo}" color="blue">{safe_repo}</link>', BODY))
     else:
-        story.append(para("Link do repositório não informado. Gere novamente passando a URL do GitHub.", BODY))
+        story.append(para("Link do repositório não informado.", BODY))
 
     doc.build(story, onFirstPage=rodape, onLaterPages=rodape)
     print(f"PDF gerado: {SAIDA}")
     print(f"Imagens encontradas: {len(images)} de 12")
     if len(images) < 12:
-        print("Atenção: coloque as 12 imagens na pasta 'prints' e gere o PDF novamente.")
+        print("Atenção: coloque menos de 12 imagens.")
     elif len(images) > 12:
-        print("Atenção: foram encontradas mais de 12 imagens; somente as 12 primeiras por ordem alfabética foram usadas.")
+        print("Atenção:mais de 12 imagens.")
 
 if __name__ == "__main__":
     montar()
